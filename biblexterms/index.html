@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | BibleX App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Primary */
+            --cosmic-purple: #8B5CF6;
+            --celestial-blue: #3B82F6;
+
+            /* Secondary */
+            --accent-gold: #F59E0B;
+            --accent-amber: #D97706;
+            --aurora-teal: #14B8A6;
+            --starlight-gold: #FACC15;
+
+            /* Backgrounds */
+            --cosmic-black: #0A0A12;
+            --deep-space-navy: #12101F;
+            --nebula-shadow: #1A1830;
+
+            /* Text */
+            --text-primary: #EEEEF4;
+            --text-secondary: #A1A1B5;
+            --text-hint: #8B7BB7;
+
+            /* Gradients */
+            --gradient-gold: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            --gradient-gold-warm: linear-gradient(135deg, #FACC15 0%, #F59E0B 100%);
+            --gradient-celestial: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%);
+            --gradient-teal-mist: linear-gradient(135deg, #14B8A6 0%, #5EEAD4 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cosmic-black);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Ambient background effects */
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .ambient-bg::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(217, 119, 6, 0.12) 0%, transparent 70%);
+            top: -200px;
+            left: -100px;
+            animation: float 22s ease-in-out infinite;
+        }
+
+        .ambient-bg::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+            bottom: 20%;
+            right: -150px;
+            animation: float 28s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.25rem 2rem;
+            background: rgba(10, 10, 18, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(245, 158, 11, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--gradient-gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--text-primary);
+        }
+
+        nav a.active {
+            color: var(--accent-gold);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-gold);
+            border-radius: 1px;
+        }
+
+        /* Main Content */
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-bottom: 4rem;
+            animation: fadeUp 0.8s ease-out;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(217, 119, 6, 0.1);
+            border: 1px solid rgba(217, 119, 6, 0.2);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-hint) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 520px;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: rgba(26, 24, 48, 0.5);
+            border: 1px solid rgba(245, 158, 11, 0.08);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            animation: fadeUp 0.8s ease-out 0.1s backwards;
+        }
+
+        .toc h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-hint);
+            margin-bottom: 1rem;
+        }
+
+        .toc-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .toc-list a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .toc-list a:hover {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--text-primary);
+        }
+
+        .toc-list .section-letter {
+            width: 26px;
+            height: 26px;
+            background: var(--gradient-gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.75rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        /* Content Sections */
+        .content {
+            animation: fadeUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: rgba(26, 24, 48, 0.5);
+            border-radius: 20px;
+            border: 1px solid rgba(245, 158, 11, 0.08);
+            transition: border-color 0.3s ease;
+        }
+
+        .section:hover {
+            border-color: rgba(245, 158, 11, 0.15);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-marker {
+            width: 36px;
+            height: 36px;
+            background: var(--gradient-gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+
+        .section p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Special emphasis */
+        .emphasis-block {
+            background: rgba(245, 158, 11, 0.05);
+            border-left: 3px solid var(--accent-gold);
+            padding: 1rem 1.25rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1rem 0;
+        }
+
+        .emphasis-block p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Warning block */
+        .warning-block {
+            background: rgba(250, 204, 21, 0.05);
+            border: 1px solid rgba(250, 204, 21, 0.2);
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+
+        .warning-block h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--starlight-gold);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .warning-block p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Jurisdiction note */
+        .jurisdiction-note {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.08) 0%, rgba(59, 130, 246, 0.05) 100%);
+            border: 1px solid rgba(20, 184, 166, 0.15);
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+        }
+
+        .jurisdiction-note h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--aurora-teal);
+            margin-bottom: 0.75rem;
+        }
+
+        .jurisdiction-note p {
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(245, 158, 11, 0.08);
+            margin-top: 2rem;
+        }
+
+        /* Scroll progress */
+        .scroll-progress {
+            position: fixed;
+            top: 73px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--gradient-gold);
+            z-index: 99;
+            transition: width 0.1s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            header {
+                padding: 1rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            main {
+                padding: 6rem 1.25rem 3rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .toc {
+                padding: 1.5rem;
+            }
+
+            .toc-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-bg"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">
+                <div class="logo-icon">B</div>
+                <span class="logo-text">BibleX</span>
+            </a>
+            <nav>
+                <a href="/biblexpolicy">Privacy</a>
+                <a href="/biblexterms" class="active">Terms</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero">
+            <div class="hero-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                Legal Agreement
+            </div>
+            <h1>Terms & Conditions</h1>
+            <p class="hero-subtitle">Please read these terms carefully before using BibleX. By using our app, you agree to be bound by these terms.</p>
+        </div>
+
+        <div class="toc">
+            <h3>Quick Navigation</h3>
+            <ul class="toc-list">
+                <li><a href="#scope"><span class="section-letter">a</span>Scope of License</a></li>
+                <li><a href="#consent"><span class="section-letter">b</span>Use of Data</a></li>
+                <li><a href="#content"><span class="section-letter">c</span>Content Guidelines</a></li>
+                <li><a href="#termination"><span class="section-letter">d</span>Termination</a></li>
+                <li><a href="#warranty"><span class="section-letter">e</span>No Warranty</a></li>
+                <li><a href="#liability"><span class="section-letter">f</span>Liability</a></li>
+                <li><a href="#governing"><span class="section-letter">g</span>Governing Law</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <p>Apps made available through the App Store are licensed, not sold, to you. Your license to each App is subject to your prior acceptance of either this Licensed Application End User License Agreement ("Standard EULA"), or a custom end user license agreement between you and the Application Provider ("Custom EULA"), if one is provided.</p>
+            </div>
+
+            <div class="section" id="scope">
+                <div class="section-header">
+                    <div class="section-marker">a</div>
+                    <h2>Scope of License</h2>
+                </div>
+                <p>Licensor grants to you a nontransferable license to use the Licensed Application on any Apple-branded products that you own or control and as permitted by the Usage Rules.</p>
+                <div class="emphasis-block">
+                    <p>You may not distribute or make the Licensed Application available over a network where it could be used by multiple devices at the same time. You may not transfer, redistribute or sublicense the Licensed Application.</p>
+                </div>
+                <p>If you sell your Apple Device to a third party, you must remove the Licensed Application from the Apple Device before doing so. You may not copy, reverse-engineer, disassemble, attempt to derive the source code of, modify, or create derivative works of the Licensed Application, any updates, or any part thereof.</p>
+            </div>
+
+            <div class="section" id="consent">
+                <div class="section-header">
+                    <div class="section-marker" style="background: var(--gradient-celestial);">b</div>
+                    <h2>Consent to Use of Data</h2>
+                </div>
+                <p>You agree that Licensor may collect and use technical data and related information—including but not limited to technical information about your device, system and application software, and peripherals—that is gathered periodically to facilitate the provision of software updates, product support, and other services to you related to the Licensed Application.</p>
+                <p>Licensor may use this information, as long as it is in a form that does not personally identify you, to improve its products or to provide services or technologies to you.</p>
+            </div>
+
+            <div class="section" id="content">
+                <div class="section-header">
+                    <div class="section-marker" style="background: var(--gradient-gold);">c</div>
+                    <h2>Content Guidelines</h2>
+                </div>
+                <p>BibleX provides daily devotional content, Bible verses, and reflections to support your spiritual journey. By using our app, you agree to:</p>
+                <div class="emphasis-block">
+                    <p>Use the app in a respectful manner. The devotional content, Bible verses, and reflections provided are intended for personal spiritual growth and should not be considered a substitute for professional pastoral or theological counsel.</p>
+                </div>
+                <p>All Scripture content within the app is provided for personal use. The devotional reflections are intended to complement, not replace, your personal study and engagement with Scripture.</p>
+            </div>
+
+            <div class="section" id="termination">
+                <div class="section-header">
+                    <div class="section-marker" style="background: var(--gradient-teal-mist);">d</div>
+                    <h2>Termination</h2>
+                </div>
+                <p>This Standard EULA is effective until terminated by you or Licensor. Your rights under this Standard EULA will terminate automatically if you fail to comply with any of its terms.</p>
+            </div>
+
+            <div class="section" id="warranty">
+                <div class="section-header">
+                    <div class="section-marker" style="background: linear-gradient(135deg, var(--starlight-gold) 0%, var(--accent-gold) 100%);">e</div>
+                    <h2>No Warranty</h2>
+                </div>
+                <p>YOU EXPRESSLY ACKNOWLEDGE AND AGREE THAT USE OF THE LICENSED APPLICATION IS AT YOUR SOLE RISK. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE LICENSED APPLICATION AND ANY SERVICES PERFORMED OR PROVIDED BY THE LICENSED APPLICATION ARE PROVIDED "AS IS" AND "AS AVAILABLE," WITH ALL FAULTS AND WITHOUT WARRANTY OF ANY KIND.</p>
+                <p>LICENSOR HEREBY DISCLAIMS ALL WARRANTIES AND CONDITIONS WITH RESPECT TO THE LICENSED APPLICATION AND ANY SERVICES, EITHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES AND/OR CONDITIONS OF MERCHANTABILITY, OF SATISFACTORY QUALITY, OF FITNESS FOR A PARTICULAR PURPOSE, OF ACCURACY, OF QUIET ENJOYMENT, AND OF NONINFRINGEMENT OF THIRD-PARTY RIGHTS.</p>
+                <div class="warning-block">
+                    <h4>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                        Devotional Content
+                    </h4>
+                    <p>BibleX is designed to support your daily devotional practice. The content provided should not be considered professional theological or pastoral advice.</p>
+                </div>
+            </div>
+
+            <div class="section" id="liability">
+                <div class="section-header">
+                    <div class="section-marker" style="background: linear-gradient(135deg, var(--accent-gold) 0%, var(--cosmic-purple) 100%);">f</div>
+                    <h2>Limitation of Liability</h2>
+                </div>
+                <p>TO THE EXTENT NOT PROHIBITED BY LAW, IN NO EVENT SHALL LICENSOR BE LIABLE FOR PERSONAL INJURY OR ANY INCIDENTAL, SPECIAL, INDIRECT, OR CONSEQUENTIAL DAMAGES WHATSOEVER, INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF PROFITS, LOSS OF DATA, BUSINESS INTERRUPTION, OR ANY OTHER COMMERCIAL DAMAGES OR LOSSES.</p>
+                <div class="emphasis-block">
+                    <p>In no event shall Licensor's total liability to you for all damages exceed the amount of fifty dollars ($50.00).</p>
+                </div>
+            </div>
+
+            <div class="section" id="governing">
+                <div class="section-header">
+                    <div class="section-marker" style="background: linear-gradient(135deg, var(--accent-amber) 0%, var(--aurora-teal) 100%);">g</div>
+                    <h2>Governing Law</h2>
+                </div>
+                <p>This Agreement and the relationship between you and Apple shall be governed by the laws of the State of California, excluding its conflicts of law provisions. You and Apple agree to submit to the personal and exclusive jurisdiction of the courts located within the county of Santa Clara, California, to resolve any dispute or claim arising from this Agreement.</p>
+
+                <div class="jurisdiction-note">
+                    <h4>For European Union, Switzerland, Norway & Iceland Users</h4>
+                    <p>If you are a citizen of any European Union country or Switzerland, Norway or Iceland, the governing law and forum shall be the laws and courts of your usual place of residence.</p>
+                </div>
+
+                <p>Specifically excluded from application to this Agreement is that law known as the United Nations Convention on the International Sale of Goods.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BibleX App. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = (scrollTop / scrollHeight) * 100;
+            scrollProgress.style.width = progress + '%';
+        });
+    </script>
+</body>
+</html>
